@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Select from 'react-select'
+import { ERROR_MESSAGES } from '../../constants/Messages'
 import { customStyles } from './styles'
 
 type Props = {
@@ -22,12 +23,12 @@ export const DropDown: React.FC<Props> = ({ countries, onSelect, isLoading }) =>
     <div className='px-10 w-1/2' data-testid='select'>
       <Select
         isClearable
-        noOptionsMessage={() => 'Processing Your Input...'}
+        noOptionsMessage={() => ERROR_MESSAGES.DROP_DOWN_MESSAGE}
         styles={customStyles}
         onInputChange={checkInputLength}
         options={showOptions ? countries : []}
         isLoading={isLoading}
-        placeholder='Enter Country Name to Search'
+        placeholder={ERROR_MESSAGES.DROP_DOWN_PLACEHOLDER}
         onChange={onSelect}
       />
     </div>
