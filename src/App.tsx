@@ -1,11 +1,14 @@
 import React from 'react'
 import Countries from './components/Countries'
+import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
 
 const App: React.FC = () => {
   return (
-    <div>
-      <Countries />
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Countries} />
+      </Switch>
+    </Router>
   )
 }
 
